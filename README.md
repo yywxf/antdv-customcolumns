@@ -5,6 +5,8 @@
 代码示例：
 ```
 <CustomColumns v-model="columns" name="testName" />
+
+<a-table :columns="filterColumns" />
 ```
 
 ```javascript
@@ -30,6 +32,11 @@ export default {
         return {
             columns,
         }
+    },
+    computed: {
+      filterColumns () {
+        return this.columns.filter(item => !item.hidden)
+      },
     }
 }
 ```
